@@ -274,17 +274,48 @@ class DashboardTest extends TestCase
     public function test_authenticated_user_can_view_users_page(): void
     {
         $user = User::factory()->create();
+        $listedUser = User::factory()->create([
+            'name' => 'John Smith',
+            'email' => 'john@example.com',
+        ]);
+        $listedUser->roleAssignment()->update(['role' => 'admin']);
 
         $this->actingAs($user)
             ->get(route('users'))
             ->assertOk()
             ->assertSee('Manage all users who have access to the donation system.')
             ->assertSee('Total Users')
-            ->assertSee('Active Users')
+            ->assertSee('Members')
+            ->assertSee('Admins')
+            ->assertSee('Guests')
             ->assertSee('Users List')
             ->assertSee('John Smith')
             ->assertSee('Filter by role')
-            ->assertSee('Add New User');
+            ->assertSee('Account ID')
+            ->assertSee('Campaigns')
+            ->assertDontSee('Anna Brown')
+            ->assertDontSee('Last Login');
+    }
+
+    public function test_users_page_filters_real_users_by_search_and_role(): void
+    {
+        $admin = User::factory()->create([
+            'name' => 'John Smith',
+            'email' => 'john@example.com',
+        ]);
+        $admin->roleAssignment()->update(['role' => 'admin']);
+
+        User::factory()->create([
+            'name' => 'Jane Member',
+            'email' => 'jane@example.com',
+        ]);
+
+        $this->actingAs(User::factory()->create())
+            ->get(route('users', ['search' => 'John', 'role' => 'admin']))
+            ->assertOk()
+            ->assertSee('John Smith')
+            ->assertSee('john@example.com')
+            ->assertDontSee('Jane Member');
     }
 
     public function test_users_page_redirects_guests_to_login(): void

@@ -7,6 +7,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DonorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -49,7 +50,7 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/donors', [DonorController::class, 'index'])->name('donors');
     Route::get('/donors/create', [DonorController::class, 'create'])->name('donors.create');
     Route::post('/donors', [DonorController::class, 'store'])->name('donors.store');
-    Route::view('/users', 'users')->name('users');
+    Route::get('/users', [UserController::class, 'index'])->name('users');
 
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });

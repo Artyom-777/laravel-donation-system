@@ -3922,7 +3922,7 @@ body.sidebar-collapsed .dashboard-main {
 
 .user-filters {
     display: grid;
-    grid-template-columns: minmax(130px, 1.1fr) minmax(100px, 0.8fr) minmax(110px, 0.85fr) minmax(185px, 1.6fr) auto;
+    grid-template-columns: minmax(160px, 1.2fr) minmax(120px, 0.8fr) auto;
     align-items: center;
     gap: 7px;
     margin-bottom: 10px;
@@ -4191,6 +4191,16 @@ body.sidebar-collapsed .dashboard-main {
 .user-role-user {
     background: #e3efff;
     color: #1768df;
+}
+
+.user-role-member {
+    background: #e3efff;
+    color: #1768df;
+}
+
+.user-role-guest {
+    background: #fff0c2;
+    color: #a76500;
 }
 
 .user-status-active {
