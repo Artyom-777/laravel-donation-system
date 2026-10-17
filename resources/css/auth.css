@@ -1,0 +1,273 @@
+:root {
+    font-family: 'Segoe UI', sans-serif;
+    color: #20251f;
+    background: #f4f5f1;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-optical-sizing: auto;
+    font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+.auth-page {
+    display: grid;
+    min-height: 100vh;
+    padding: 30px;
+    place-items: center;
+}
+
+.auth-shell {
+    width: min(490px, 100%);
+    padding: 34px;
+    border: 1px solid #e8ebe5;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 24px 80px rgb(30 45 31 / 9%);
+}
+
+.brand {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 30px;
+    color: #294d3b;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    text-decoration: none;
+}
+
+.brand-mark {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dce6da;
+    border-radius: 10px;
+    background: #f1f5ef;
+    font-size: 15px;
+    place-items: center;
+}
+
+.eyebrow {
+    display: block;
+    color: #809978;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.55px;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.auth-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-card {
+    width: 100%;
+}
+
+.form-heading {
+    margin-bottom: 31px;
+}
+
+.form-heading h2 {
+    margin: 9px 0 8px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: -1.15px;
+    line-height: 1.25;
+}
+
+.form-heading p {
+    margin: 0;
+    color: #7d847b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.form-heading strong {
+    color: #3b483c;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.auth-form {
+    display: grid;
+    gap: 20px;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+}
+
+.field label,
+.field-label-row label {
+    color: #343a33;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.field input {
+    width: 100%;
+    height: 47px;
+    padding: 0 14px;
+    border: 1px solid #e0e4dd;
+    border-radius: 8px;
+    outline: 0;
+    background: #fff;
+    color: #20251f;
+    font-size: 13px;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.field input::placeholder {
+    color: #a2a89f;
+}
+
+.field input:focus {
+    border-color: #6a8965;
+    box-shadow: 0 0 0 3px rgb(106 137 101 / 13%);
+}
+
+.field-hint {
+    color: #8a9188;
+    font-size: 11px;
+}
+
+.field-error {
+    color: #b5443b;
+    font-size: 11px;
+}
+
+.field-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.check-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #737a71;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.check-row input {
+    width: 15px;
+    height: 15px;
+    accent-color: #345b45;
+}
+
+.button {
+    display: flex;
+    min-height: 48px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 160ms ease, transform 160ms ease;
+}
+
+.button-primary {
+    background: #294d3b;
+    color: #fff;
+}
+
+.button-primary:hover {
+    transform: translateY(-1px);
+    background: #203f30;
+}
+
+.button-primary span {
+    font-size: 17px;
+}
+
+.button-link {
+    margin-top: 24px;
+}
+
+.form-switch {
+    margin: 26px 0 0;
+    color: #7e857c;
+    font-size: 12px;
+    text-align: center;
+}
+
+.form-switch a,
+.legal-copy a {
+    color: #345b45;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-switch a:hover,
+.legal-copy a:hover {
+    text-decoration: underline;
+}
+
+.legal-copy {
+    margin: 28px 0 0;
+    color: #a0a69d;
+    font-size: 10px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.legal-copy a {
+    color: #687b66;
+    font-weight: 500;
+}
+
+@media (max-width: 760px) {
+    .auth-page {
+        padding: 20px;
+    }
+
+    .auth-shell {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 380px) {
+    .auth-page {
+        padding: 0;
+    }
+
+    .auth-shell {
+        padding: 24px;
+    }
+}
