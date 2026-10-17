@@ -25,4 +25,3 @@ export default function DonationWelcome() {
         </div>
     );
 }
-console.log('DonationWelcome component loaded');
